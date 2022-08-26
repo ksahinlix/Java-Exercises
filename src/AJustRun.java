@@ -1,33 +1,34 @@
 import java.util.Scanner;
+
 public class AJustRun {
     public static void main(String[] args) {
-        int dice = getDice();
 
-        if (dice == 7 || dice == 11) {
-            System.out.println("You win!");
-            System.exit(1);
-        } else if (dice == 2 || dice == 3 || dice == 12) {
-            System.out.println("You Lost");
-            System.exit(2);
-        }
-            System.out.println("Dice is : " + dice);
-            int dice2 = dice;
-            do {
-                dice = getDice();
-            } while (dice != 7 && dice2 != dice);
-            if(dice == 7){
-                System.out.println("You lost");
-            }else
-                System.out.println("You win");
+        printMax(34, 3, 3, 2, 56.5);
 
+        printMax(2, new double[]{1, 2, 3});
     }
-    public static int getDice(){
-       int number1 = (int)( 1 + Math.random() * 6);
-       int number2 = (int)( 1 + Math.random() * 6);
-       System.out.println("You rolled: " +  number1 + " and " + number2 + " total is : " + ( number1 + number2));
-       return number1+number2;
+
+
+    public static void printMax(int k, double... numbers) {
+
+        if (numbers.length == 0) {
+            System.out.println("No argument passed");
+            return;
+        }
+
+        System.out.println(k);
+        double result = numbers[0];
+
+
+        for (int i = 1; i < numbers.length; i++)
+
+            if (numbers[i] > result) result = numbers[i];
+
+        System.out.println("The max value is " + result);
     }
 }
+
+
 
 
 
